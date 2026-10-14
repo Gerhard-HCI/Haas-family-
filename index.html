@@ -132,11 +132,11 @@
     .wx-icon{font-size:26px}.wx-info{flex:1}.wx-temp{font-size:14px;font-weight:600;color:#141B2D}.wx-desc{font-size:11px;color:#55607A;margin-top:2px}.wx-rain{font-size:12px;font-weight:500;color:#1D6FAD;flex-shrink:0}
 
     /* ── TIMELINE ── */
-    .timeline{position:relative;padding-left:72px}
+    .timeline{position:relative;padding-left:86px}
     .stop-item{position:relative;margin-bottom:14px}
     .stop-item::after{content:'';position:absolute;left:-16px;top:29px;bottom:-14px;width:2px;background-color:#E2E6EF;z-index:1}
     .stop-item:last-child::after{display:none}
-    .stop-time{position:absolute;left:-68px;top:11px;width:44px;text-align:right;font-size:10.5px;font-weight:600;color:#7A869E;line-height:1.3}
+    .stop-time{position:absolute;left:-86px;top:10px;width:52px;text-align:right;font-size:10.5px;font-weight:600;color:#7A869E;line-height:1.3;white-space:normal;overflow-wrap:break-word}
     .stop-dot{position:absolute;left:-25px;top:9px;width:18px;height:18px;border-radius:50%;border:2.5px solid #ccc;background-color:#FFFFFF;z-index:2}
     .stop-dot.t-restaurant{border-color:#c8627c;background-color:#FBEFF2}
     .stop-dot.t-activity{border-color:#6650CC;background-color:#EEE8FF}
@@ -269,7 +269,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v3</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v5</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -314,7 +314,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v3',
+  version: 'v5',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -366,7 +366,7 @@ var HOTELS = {
   senjuan:  { name:'Bettei Senjuan', area:'Tanigawa Onsen · Minakami', nights:'2 – 4 Nov', addr:'614 Tanigawa, Minakami-machi, Tone-gun, Gunma', q:'Bettei Senjuan Minakami', mapsLink:null },
   sanraku:  { name:'The Hotel Sanraku Kanazawa', area:'Owari-cho · near Omicho Market · Kanazawa', nights:'4 – 7 Nov', addr:'1-1-1 Owari-cho, Kanazawa, Ishikawa', q:'THE HOTEL SANRAKU KANAZAWA', mapsLink:null },
   eaufeu:   { name:'Auberge eaufeu', area:'Kanagaso · Komatsu', nights:'7 – 8 Nov', addr:'Ro-48 Kanagaso-machi, Komatsu, Ishikawa', q:'Auberge eaufeu Komatsu', mapsLink:null },
-  gate:     { name:'The Gate Hotel Kyoto Takasegawa', area:'Kiyamachi · Kyoto', nights:'8 – 15 Nov', addr:null, q:'The Gate Hotel Kyoto Takasegawa by Hulic', mapsLink:null },
+  gate:     { name:'The Gate Hotel Kyoto Takasegawa', area:'Kiyamachi · Kyoto', nights:'8 – 15 Nov', addr:'310-2 Bizenjima-cho, Nakagyo-ku, Kyoto', q:'The Gate Hotel Kyoto Takasegawa by Hulic', mapsLink:null },
   gora:     { name:'Gora Kadan', area:'Gora · Hakone', nights:'15 – 17 Nov', addr:'1300 Gora, Hakone-machi, Ashigarashimo-gun, Kanagawa', q:'Gora Kadan Hakone', mapsLink:null },
   imperial: { name:'Imperial Hotel Tokyo', area:'Hibiya · Tokyo', nights:'17 – 19 Nov', addr:'1-1-1 Uchisaiwaicho, Chiyoda-ku, Tokyo', q:'Imperial Hotel Tokyo', mapsLink:null }
 };
@@ -539,7 +539,7 @@ var DAYS = [
       { time:'18:30', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Tempura Matoba', sub:'Dinner · Tempura · Higashi Chaya',
         facts:['Tempura omakase','3 covers','With Hiro-sensei'],
-        q:'Tempura Matoba Higashiyama Kanazawa', addr:'Higashiyama, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'Tempura Matoba Higashiyama Kanazawa', addr:'1-14-4 Higashiyama, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
         notes:'Hiroki Matoba spent years at Tempura Motoyoshi, one of Tokyo’s finest tempura counters, then moved to Kanazawa for the produce — he often drives for hours at dawn to buy straight from fishermen and farmers. The batter is gossamer-light, the frying exact, and the ingredients are the point: Hokuriku white shrimp, local fish, autumn mushrooms and Kaga vegetables. One of the most exciting new counters in Japan, and a beautiful room on a lantern-lit street.',
         alert:FRAGRANCE }
     ] },
@@ -641,7 +641,7 @@ var DAYS = [
       { time:'20:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Niku no Takumi Miyoshi', sub:'Dinner · Wagyu counter · Gion, Kyoto',
         facts:['Wagyu kaiseki','2 covers','Tabelog Silver'],
-        q:'Nikunotakumi Miyoshi Gion Kyoto', addr:'Gion, Higashiyama-ku, Kyoto', mapsLink:null, taxi:true,
+        q:'Nikunotakumi Miyoshi Gion Kyoto', addr:'570-15 Gionmachi Minamigawa, Higashiyama-ku, Kyoto', mapsLink:null, taxi:true,
         notes:'Miyoshi treats wagyu the way a kaiseki kitchen treats fish: a long course at an eight-seat counter, each cut prepared differently — raw, seared, simmered, grilled over charcoal — so you taste how much the beef can do. Where Oka is about ageing and fire, Miyoshi is about range and technique; having both in the same week is a rare chance to compare two of Kyoto’s great meat counters.',
         alert:NOSCENT }
     ] },
@@ -859,10 +859,51 @@ var DISCOVER = {
   ]
 };
 
+/* ═══════════════════════════════════════════════════════
+   GOOGLE PLACE IDS — exact pins, keyed by the q string above.
+   A verbatim maps.app.goo.gl mapsLink still takes priority.
+═══════════════════════════════════════════════════════ */
+var PLACE_IDS = {
+  'Bettei Senjuan Minakami':'ChIJYYiWRIkTHmARWmZDqfqQQhM',
+  'THE HOTEL SANRAKU KANAZAWA':'ChIJV5pLKH8z-F8RJ34ns14hjiw',
+  'Auberge eaufeu Komatsu':'ChIJ-UNglTRb-F8RLS82YWsM8h8',
+  'The Gate Hotel Kyoto Takasegawa by Hulic':'ChIJe6AeMEUJAWARsi9YhKq4Tis',
+  'Gora Kadan Hakone':'ChIJge73U_-hGWARKnkwi9qEB0E',
+  'Imperial Hotel Tokyo':'ChIJT7wVXe6LGGARpg6sWitWN8Y',
+  'Sushi Nakano Minami-Aoyama Tokyo':'ChIJa9yHuliLGGAR5oWlfGXlwFg',
+  'Sumibi Yakiniku Nakahara Ichigaya':'ChIJmVnECGGMGGARtOVsV8yziLo',
+  'Tempura Matoba Higashiyama Kanazawa':'ChIJq-_hXpAz-F8R2bDa_18VRUc',
+  'Respiracion Kanazawa':'ChIJf8WQHXEz-F8RyloAPIsk22Q',
+  'Gion Nikuryori Oka Kyoto':'ChIJQ4VZrZIIAWARa4INYMWPmvg',
+  'Nikunotakumi Miyoshi Gion Kyoto':'ChIJ10NH2MMIAWARGQ-o1Y6eHhw',
+  'Tenichi Museum Minakami':'ChIJhac8TvMTHmARSfozDqxH5dE',
+  'Tanigawadake Ropeway Minakami':'ChIJJSz0C80WHmARlxi8fMSxOnw',
+  'Ichinokurasawa Minakami':'ChIJoXsadAARHmARQ75G4DNeNaI',
+  'Takumi no Sato Minakami':'ChIJZ_h8CBdtHmAR4bcOHQ9LNgk',
+  'Higashi Chaya District Kanazawa':'ChIJsfC6oXQz-F8RdA1qXiF6jLs',
+  'Kazuemachi Chaya District Kanazawa':'ChIJR-yGmXMz-F8Rf07-P4u1PUM',
+  'Zenkoji Temple Nagano':'ChIJhyd2jeKGHWARLg80YfuZ-vQ',
+  'Byodoin Temple Uji':'ChIJqyva4AwRAWARpAf6j5MUhGA',
+  'Kuromon Market Osaka':'ChIJXSJB5UHnAGARQcEjvngsHaw',
+  'Todaiji Temple Nara':'ChIJ3XYIepA5AWARjzzVnT-skPg',
+  'Himeji Castle':'ChIJsyQzogPgVDURsYG6bi-MT3o',
+  'Hiroshima Peace Memorial Park':'ChIJgzAzVG2iWjURZRZ1udXOKeE',
+  'Hakone Open-Air Museum':'ChIJMfOWowSiGWARX2wK6ac5jlg',
+  'Edo-Tokyo Open Air Architectural Museum':'ChIJh5F6GpuNGGARZ6dHiggrfyQ',
+  'Narita International Airport Terminal 1':'ChIJb8n8uwvzImAR-RJHLJTlTdU',
+  'Jomo-Kogen Station':'ChIJX7Vx8JRrHmARb5DI7ugZ_KA',
+  'Takasaki Station':'ChIJh3ZzfZuSHmARSljV8hrRWhE',
+  'Kanazawa Station':'ChIJBYa7A0Iz-F8R6qe7HgH2XV0',
+  'Toyama Station':'ChIJeT4gW5yQ918RdrL91LyNLv0',
+  'Komatsu Station':'ChIJ0X8Rb6pR-F8RgWdnQ5Hnz1U',
+  'Kyoto Station':'ChIJ7wKLka4IAWARCByidG5EGrY',
+  'Odawara Station':'ChIJuWAWN1akGWARzf3qZtZIduw'
+};
+
 /* ══════════════ HELPERS ══════════════ */
 function esc(s){if(s===null||s===undefined)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function gm(q,link){if(link)return link;return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q||'Japan');}
-function nav(q){return 'https://www.google.com/maps/dir/?api=1&travelmode=driving&destination='+encodeURIComponent(q||'Japan');}
+function gm(q,link){if(link)return link;var id=q&&PLACE_IDS[q];return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q||'Japan')+(id?'&query_place_id='+id:'');}
+function nav(dest,q){var id=(q&&PLACE_IDS[q])||(dest&&PLACE_IDS[dest]);return 'https://www.google.com/maps/dir/?api=1&travelmode=driving&destination='+encodeURIComponent(dest||q||'Japan')+(id?'&destination_place_id='+id:'');}
 function fmtDate(iso,opt){var p=iso.split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));return d.toLocaleDateString('en-GB',Object.assign({timeZone:'UTC'},opt));}
 
 var toastTm;
@@ -946,7 +987,7 @@ function renderStop(stop,di,si){
   var dot=pending?'t-pending':'t-'+(stop.type||'restaurant');
   var cls=pending?' is-pending':(stop.featured?' is-feature':'');
   var title=hidden?'Happy Camper selection':stop.title;
-  var h='<div class="stop-item"><div class="stop-time">'+esc((stop.time||'').replace('~',''))+'</div>'
+  var h='<div class="stop-item"><div class="stop-time">'+esc((stop.time||'').replace('~','')).replace('–','–<br>')+'</div>'
     +'<div class="stop-dot '+dot+'"></div>'
     +'<div class="stop-card'+cls+'"><div class="stop-top"><div class="stop-title-wrap">'
     +'<div class="stop-title">'+icon+esc(title)+'</div>'
@@ -962,7 +1003,7 @@ function renderStop(stop,di,si){
   if(hasLoc){
     h+='<div class="map-actions">'
       +'<a href="'+gm(stop.q,stop.mapsLink)+'" target="_blank" rel="noopener" class="map-btn mp" aria-label="Open '+esc(stop.title)+' in Google Maps">📍 Maps</a>'
-      +'<a href="'+nav(stop.addr||stop.q)+'" target="_blank" rel="noopener" class="map-btn" aria-label="Directions to '+esc(stop.title)+'">🧭 Directions</a>'
+      +'<a href="'+nav(stop.addr||stop.q,stop.q)+'" target="_blank" rel="noopener" class="map-btn" aria-label="Directions to '+esc(stop.title)+'">🧭 Directions</a>'
       +(stop.taxi?'<a href="'+CONFIG.goTaxi+'" target="_blank" rel="noopener" class="map-btn taxi" aria-label="Book a GO taxi">🚕 GO Taxi</a>':'')
       +'<button type="button" class="map-btn" onclick="copyAddr('+di+','+si+')" aria-label="Copy address">⧉ Copy</button>'
       +'</div>';
