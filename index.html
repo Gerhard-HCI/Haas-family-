@@ -110,6 +110,7 @@
     .hotel-bar.none{background-color:#F3F5F7;border-left-color:#90A4AE}
     .hb-name{font-size:12.5px;font-weight:600;color:#131e36}
     .hb-detail{font-size:11px;color:#3A4866;margin-top:1px}
+    .hb-link+.hb-link{margin-left:6px}
     .hb-link{margin-left:auto;font-size:11px;font-weight:500;flex-shrink:0;color:#131e36!important;background-color:#FFFFFF!important;border:1px solid #D6DCE8;border-radius:8px;padding:6px 10px}
     .day-note-bar{background-color:#F7F3EE;border-radius:12px;border-left:3px solid #c8627c;padding:10px 13px;font-size:12.5px;color:#2A3450;line-height:1.6;margin-bottom:12px}
     .alt-box{background-color:#F4F7F1;border-radius:12px;border:1px solid rgba(62,94,58,.18);padding:12px 13px;margin-top:4px}
@@ -251,6 +252,29 @@
 
     .st-foot{font-size:10.5px;color:#9AA4B8;text-align:center;margin-top:6px}
 
+    /* ── TAXI CARD — shown to the driver ── */
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(12,20,38,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:100000;display:none;align-items:flex-end;justify-content:center}
+    .modal-overlay.active{display:flex}
+    .modal{background-color:#FAF8F4;width:100%;max-width:620px;max-height:92vh;border-radius:22px 22px 0 0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:18px 22px calc(28px + env(safe-area-inset-bottom));animation:modalUp .35s cubic-bezier(.16,1,.3,1)}
+    @keyframes modalUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+    .modal-grabber{width:38px;height:4px;background-color:#9AA4B8;border-radius:99px;margin:0 auto 16px;opacity:.5}
+    .modal-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:12px}
+    .modal-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:500;color:#141B2D;line-height:1.2}
+    .modal-title-jp{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:16px;color:#2A3450;margin-top:3px}
+    .modal-close{font-size:24px;color:#55607A!important;background-color:#FFFFFF!important;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;line-height:1;border:1px solid #ECEEF4!important}
+    .modal-footer-note{font-size:11.5px;color:#55607A;text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid #ECEEF4;line-height:1.6}
+    .modal-footer-note em{color:#9AA4B8}
+    .taxi-card{background-color:#FFFFFF;border-radius:16px;padding:26px 22px;text-align:center;border:1px solid #ECEEF4}
+    .taxi-to{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#55607A;margin-bottom:14px}
+    .taxi-name{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:30px;line-height:1.3;color:#000000;font-weight:600;margin-bottom:6px}
+    .taxi-name-en{font-size:13px;color:#55607A;margin-bottom:20px}
+    .taxi-addr{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:25px;line-height:1.65;color:#000000;font-weight:600;padding:18px 10px;border-top:2px solid #000000;border-bottom:2px solid #000000}
+    .taxi-ask{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:19px;color:#000000;margin-top:20px;line-height:1.5}
+    .taxi-ask-en{font-size:12px;color:#55607A;margin-top:5px;font-style:italic}
+    .taxi-actions{display:flex;gap:9px;margin-top:20px}
+    .taxi-act{flex:1;padding:12px 8px;border-radius:8px;font-size:12.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px;min-height:44px;border:1px solid #D6DCE8!important;background-color:#FFFFFF!important;color:#2A3450!important}
+    .taxi-act.pri{background-color:#131e36!important;color:#FFFFFF!important;border-color:#131e36!important}
+
     #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);background-color:rgba(19,30,54,.94);color:#FFFFFF;padding:9px 18px;border-radius:20px;font-size:13px;font-weight:500;pointer-events:none;opacity:0;transition:all .22s cubic-bezier(.4,0,.2,1);z-index:99999;white-space:nowrap;max-width:90vw}
     #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -269,7 +293,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v9</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v10</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -302,6 +326,20 @@
   <section id="tab-utilities" class="tab-panel" aria-label="Utilities" style="background-color:#FAF8F4"></section>
   <section id="tab-emergency" class="tab-panel" aria-label="Emergency" style="background-color:#FAF8F4"></section>
 </main>
+<div class="modal-overlay" id="taxi-modal" onclick="if(event.target===this)closeTaxi()">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Show the driver">
+    <div class="modal-grabber"></div>
+    <div class="modal-head">
+      <div>
+        <div class="modal-title">Show the driver</div>
+        <div class="modal-title-jp">タクシーの運転手にお見せください</div>
+      </div>
+      <button type="button" class="modal-close" onclick="closeTaxi()" aria-label="Close">&times;</button>
+    </div>
+    <div id="taxi-body"></div>
+    <div class="modal-footer-note">住所は Google マップの日本語表記のとおりです。<br><em>Address shown exactly as Google Maps renders it in Japanese.</em></div>
+  </div>
+</div>
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -314,7 +352,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v9',
+  version: 'v10',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -356,8 +394,7 @@ var CONFIG = {
     Hakone:    { lat:35.2324, lng:139.1069, norm:'typically 6–15°C, cool evenings' }
   },
   region: { Tokyo:'', Minakami:'r-mountain', Hakone:'r-mountain', Kanazawa:'r-hokuriku', Toyama:'r-hokuriku', Komatsu:'r-hokuriku', Kyoto:'r-kansai', Osaka:'r-kansai', Nara:'r-kansai', Himeji:'r-kansai', Hiroshima:'r-kansai' },
-  diet: { url:'https://diet.happycamper.food' },
-  goTaxi: 'https://go.mo-t.com/'
+  diet: { url:'https://diet.happycamper.food' }
 };
 
 /* Hotels · mapsLink: paste verbatim maps.app.goo.gl links (preferred over q) */
@@ -422,7 +459,7 @@ var DAYS = [
       { time:'20:30', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Sushi Nakano', sub:'Dinner · Edomae sushi · Minami-Aoyama',
         facts:['Sushi omakase','4 covers','Michelin ⭐','With Tomoko-san & Gerhard'],
-        q:'Sushi Nakano Minami-Aoyama Tokyo', addr:'1F Sasaki Bldg, 3-4-12 Minami-Aoyama, Minato-ku, Tokyo', mapsLink:null, taxi:true,
+        q:'Sushi Nakano Minami-Aoyama Tokyo', addr:'1F Sasaki Bldg, 3-4-12 Minami-Aoyama, Minato-ku, Tokyo', mapsLink:null,
         notes:'Yuta Nakano trained in the Kusunoki tradition and serves classic Edomae sushi — properly seasoned shari, fish aged and cured with care — but what makes his counter special is the man himself. He is warm, funny and genuinely delighted to explain each piece, which makes this the ideal first omakase of the trip: serious sushi without a trace of stiffness. Expect the shrimp-head soup and a run of tuna that builds to a proper toro finish. A small counter, so arrive on time.',
         alert:FRAGRANCE }
     ] },
@@ -438,7 +475,7 @@ var DAYS = [
       { time:'17:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Sumibi Yakiniku Nakahara', sub:'Dinner · Yakiniku · Ichigaya',
         facts:['Wagyu yakiniku','2 covers','Tabelog Yakiniku 100'],
-        q:'Sumibi Yakiniku Nakahara Ichigaya', addr:'GEMS Ichigaya 9F, 4-3 Rokubancho, Chiyoda-ku, Tokyo', mapsLink:null, taxi:true,
+        q:'Sumibi Yakiniku Nakahara Ichigaya', addr:'GEMS Ichigaya 9F, 4-3 Rokubancho, Chiyoda-ku, Tokyo', mapsLink:null,
         notes:'Kentaro Nakahara is the closest thing Tokyo has to a yakiniku philosopher. He buys whole cattle from farmers he knows, then cuts every part to its own thickness and angle — he famously dislikes square slices — so each cut cooks and chews exactly as it should. Start with the tongue, which is the house signature, then work through cuts most visitors never see. Staff grill or guide you at the table. Nothing like a backyard barbecue: this is wagyu treated with the precision of a sushi counter.',
         alert:'Grill smoke — wear something you won’t mind smelling of charcoal. No perfume, please.' }
     ] },
@@ -518,7 +555,7 @@ var DAYS = [
         notes:'Check in and a short refreshment break, with a light lunch en route or on arrival according to your preferred timing. The hotel sits between Omicho Market, the castle park and Kenroku-en; Respiración on Friday is a short walk away.' },
       { time:'15:30–16:45', type:'activity', badge:'Proposed', status:'pending',
         title:'Higashi Chaya District', sub:'Wooden teahouses and small craft shops',
-        q:'Higashi Chaya District Kanazawa', addr:'Higashiyama 1-chome, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'Higashi Chaya District Kanazawa', addr:'Higashiyama 1-chome, Kanazawa, Ishikawa', mapsLink:null,
         notes:'Kanazawa’s best-preserved geisha quarter: latticed wooden teahouses, gold-leaf workshops and small craft shops. An optional stop for Japanese tea and sweets — and a first look at the street where you will eat tempura tomorrow night.' },
       { time:'16:45–17:15', type:'activity', badge:'Proposed', status:'pending',
         title:'Kazue-machi & the Asano River', sub:'A gentle riverside stroll as evening approaches',
@@ -546,7 +583,7 @@ var DAYS = [
         notes:'Across a bridge from Kenroku-en: the great gates, the defensive stonework — some of the finest in Japan, built in several distinct styles — and the reconstructed timber turrets with their pale lead-tiled roofs.' },
       { time:'11:30', type:'restaurant', badge:'To be confirmed', status:'pending',
         title:'Soba lunch at Koyori', sub:'Teuchi Soba Koyori · handmade soba · timing subject to availability',
-        q:'Teuchi Soba Koyori Kanazawa', addr:'2-20-13 Nagata, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'Teuchi Soba Koyori Kanazawa', addr:'2-20-13 Nagata, Kanazawa, Ishikawa', mapsLink:null,
         notes:'A small, beautifully finished soba house in a quiet residential street west of the centre, with a seasonal menu. The noodles are cut by hand each day; the dashimaki tamago and the duck are worth ordering alongside. A light lunch, leaving room for the evening.' },
       { time:'13:15', type:'activity', badge:'Proposed', status:'pending',
         title:'Nagamachi Samurai District', sub:'Including the Nomura Samurai Residence',
@@ -554,7 +591,7 @@ var DAYS = [
         notes:'Narrow lanes lined with earthen walls and small canals, where the Maeda clan’s retainers lived. The Nomura residence is the one to see: a samurai house with fine painted screens and a jewel of a garden, its koi pond and stone lanterns tucked against the veranda.' },
       { time:'14:45', type:'activity', badge:'Proposed', status:'pending',
         title:'D. T. Suzuki Museum', sub:'Yoshio Taniguchi’s contemplative architecture',
-        q:'D.T. Suzuki Museum Kanazawa', addr:'3-4-20 Hondamachi, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'D.T. Suzuki Museum Kanazawa', addr:'3-4-20 Hondamachi, Kanazawa, Ishikawa', mapsLink:null,
         notes:'Dedicated to the Kanazawa-born philosopher who brought Zen to the West, and designed by Yoshio Taniguchi, architect of the MoMA extension in New York. It is less a museum than a place to sit: the Water Mirror Garden, a still, shallow pool that ripples every few minutes, is one of the most calming spaces in Japan.' },
       { time:'16:00', type:'activity', badge:'Optional', status:'pending',
         title:'Oyama Shrine', sub:'If time and energy allow · then back to the hotel',
@@ -563,7 +600,7 @@ var DAYS = [
       { time:'18:30', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Tempura Matoba', sub:'Dinner · Tempura · Higashi Chaya',
         facts:['Tempura omakase','3 covers','With Hiro-sensei'],
-        q:'Tempura Matoba Higashiyama Kanazawa', addr:'1-14-4 Higashiyama, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'Tempura Matoba Higashiyama Kanazawa', addr:'1-14-4 Higashiyama, Kanazawa, Ishikawa', mapsLink:null,
         notes:'Hiroki Matoba spent years at Tempura Motoyoshi, one of Tokyo’s finest tempura counters, then moved to Kanazawa for the produce — he often drives for hours at dawn to buy straight from fishermen and farmers. The batter is gossamer-light, the frying exact, and the ingredients are the point: Hokuriku white shrimp, local fish, autumn mushrooms and Kaga vegetables. One of the most exciting new counters in Japan, and a beautiful room on a lantern-lit street.',
         alert:FRAGRANCE }
     ] },
@@ -603,7 +640,7 @@ var DAYS = [
       { time:'17:45', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Respiración', sub:'Early dinner · Modern Spanish · Bakuromachi, Kanazawa',
         facts:['Spanish × Ishikawa','3 covers','Tabelog Silver'],
-        q:'Respiracion Kanazawa', addr:'67 Bakuromachi, Kanazawa, Ishikawa', mapsLink:null, taxi:true,
+        q:'Respiracion Kanazawa', addr:'67 Bakuromachi, Kanazawa, Ishikawa', mapsLink:null,
         notes:'Three childhood friends from Kanazawa trained in Spanish kitchens, came home and opened Respiración in a 140-year-old machiya. The result is one of the most original restaurants in Japan: northern-Spanish fire, salt and simplicity applied to Ishikawa’s ingredients. Amaebi appears on every menu, used whole from shell to head; there is usually a rice dish worth the trip on its own. The wine list, strong on Spain and natural producers, is excellent. Begin in the tea room before moving to the counter.',
         alert:NOSCENT }
     ] },
@@ -677,7 +714,7 @@ var DAYS = [
       { time:'19:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Gion Nikuryori Oka', sub:'Dinner · Niku kappo · Gion',
         facts:['Aged-beef kappo','8-seat counter'],
-        q:'Gion Nikuryori Oka Kyoto', addr:'577-3 Gionmachi Minamigawa, Higashiyama-ku, Kyoto', mapsLink:null, taxi:true,
+        q:'Gion Nikuryori Oka Kyoto', addr:'577-3 Gionmachi Minamigawa, Higashiyama-ku, Kyoto', mapsLink:null,
         notes:'Yoshitaka Oka ran an Italian restaurant in Gion for 24 years before turning it, in 2021, into a counter devoted entirely to aged beef. His meat comes from Sakaeya, the Shiga butcher whose dry-aged wagyu chefs across Japan queue for, and he cooks it over binchotan with the restraint of a kappo chef rather than the swagger of a steakhouse. Small garden behind the counter, dim light, glowing charcoal — Kyoto at its most atmospheric.',
         alert:NOSCENT }
     ] },
@@ -708,7 +745,7 @@ var DAYS = [
       { time:'20:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
         title:'Niku no Takumi Miyoshi', sub:'Dinner · Wagyu counter · Gion, Kyoto',
         facts:['Wagyu kaiseki','2 covers','Tabelog Silver'],
-        q:'Nikunotakumi Miyoshi Gion Kyoto', addr:'570-15 Gionmachi Minamigawa, Higashiyama-ku, Kyoto', mapsLink:null, taxi:true,
+        q:'Nikunotakumi Miyoshi Gion Kyoto', addr:'570-15 Gionmachi Minamigawa, Higashiyama-ku, Kyoto', mapsLink:null,
         notes:'Miyoshi treats wagyu the way a kaiseki kitchen treats fish: a long course at an eight-seat counter, each cut prepared differently — raw, seared, simmered, grilled over charcoal — so you taste how much the beef can do. Where Oka is about ageing and fire, Miyoshi is about range and technique; having both in the same week is a rare chance to compare two of Kyoto’s great meat counters.',
         alert:NOSCENT }
     ] },
@@ -808,7 +845,7 @@ var DAYS = [
   /* ── DAY 21 · Wed 18 Nov · Yakitori ── */
   { date:'2026-11-18', dayNum:21, weekday:'Wednesday, 18 November', city:'Tokyo', hotel:'imperial', people:['hosts'], occasion:'Last night', feature:true,
     headline:'Architecture & old Tokyo',
-    notes:'A half-day among the historic homes, shops and public buildings of the Edo-Tokyo Open Air Architectural Museum in Koganei, a free afternoon, then a late farewell dinner over charcoal — conveniently in Mitaka, next door to Koganei.',
+    notes:'A half-day among the historic homes, shops and public buildings of the Edo-Tokyo Open Air Architectural Museum in Koganei, a free afternoon, then a late farewell dinner together at Mitaka, a short ride from the Imperial Hotel.',
     stops:[
       { time:'09:00', type:'transport', badge:'Logistics', status:'logistics',
         title:'Depart central Tokyo', sub:'Private vehicle · with a guide, if desired',
@@ -828,11 +865,11 @@ var DAYS = [
         q:HOTELS.imperial.q, addr:HOTELS.imperial.addr, mapsLink:null,
         notes:'The rest of the afternoon is yours before the evening.' },
       { time:'20:30', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
-        title:'Yakitori dinner', sub:'Farewell dinner · Yakitori · Mitaka',
-        facts:['Yakitori course','4 covers','With Tomoko-san & Gerhard'],
-        q:null, addr:null, mapsLink:null,
-        notes:'A farewell dinner together at a yakitori counter in Mitaka, on the leafy west side of Tokyo — chicken grilled skewer by skewer over binchotan, with good sake. Full details and directions to follow.',
-        alert:'Grill smoke — wear something you won’t mind smelling of charcoal.' }
+        title:'Mitaka', sub:'Farewell dinner · Kyoto cuisine · Nishi-Shinbashi',
+        facts:['Kyoto-style counter','4 covers','With Tomoko-san & Gerhard'],
+        q:'Mitaka Nishi-Shinbashi Tokyo', addr:'Hotoku Bldg 1F, 1-18-8 Nishi-Shinbashi, Minato-ku, Tokyo', mapsLink:'https://maps.app.goo.gl/xZzUUKYVhrN22pgo8',
+        notes:'Takatoshi Inoue trained for about ten years under the late Kenichiro Nishi at Kyoaji, Tokyo’s legendary Kyoto-style restaurant, and opened his own eight-seat counter in 2018 — the name joins the 味 of “taste” with the 享 of his own name. His cooking is quietly orthodox Kyoto cuisine: clear dashi soups, simmered vegetables, carefully grilled fish, and in November the first crab, each ingredient allowed to taste fully of itself. One of the hardest counters in Tokyo to book, and a fitting last dinner — a short taxi ride from the Imperial Hotel.',
+        alert:FRAGRANCE }
     ] },
 
   /* ── DAY 22 · Thu 19 Nov · Departure ── */
@@ -965,6 +1002,7 @@ var PLACE_IDS = {
   'Komatsu Station':'ChIJ0X8Rb6pR-F8RgWdnQ5Hnz1U',
   'Kyoto Station':'ChIJ7wKLka4IAWARCByidG5EGrY',
   'Odawara Station':'ChIJuWAWN1akGWARzf3qZtZIduw',
+  'Mitaka Nishi-Shinbashi Tokyo':'ChIJUbn9U1GLGGARynHnGZio0q8',
   'Kenrokuen Garden Kanazawa':'ChIJBVmy-YMz-F8R5PID8D17Cpc',
   'Kanazawa Castle Park':'ChIJlUfxPYIz-F8RSh7ml54YJ6g',
   'Teuchi Soba Koyori Kanazawa':'ChIJdTLnSSUz-F8RkQTXJg1Xbss',
@@ -978,6 +1016,87 @@ var PLACE_IDS = {
   'Natadera Temple Komatsu':'ChIJX8jv_8FZ-F8R5Gdo8WtNda4',
   'CERABO KUTANI Komatsu':'ChIJ1dEYW7VR-F8RQQQ3UD46xzw',
   'Noguchi Naohiko Sake Institute':'ChIJAbZWZvtb-F8RVvyb8o1SuaI'
+};
+
+/* ═══════════════════════════════════════════════════════
+   JAPANESE PLACE DIRECTORY — for the taxi card (as on the Nanette site)
+   Keyed by the same q string as PLACE_IDS. name/addr in Japanese, as a driver reads them.
+   A stop or hotel shows a 🚕 Taxi button only when it has an entry here.
+═══════════════════════════════════════════════════════ */
+var JA_DIR = {
+  /* Hotels */
+  'Bettei Senjuan Minakami':{ name:'別邸 仙寿庵', en:'Bettei Senjuan', addr:'〒379-1619 群馬県利根郡みなかみ町谷川614', tel:'+81278204141' },
+  'THE HOTEL SANRAKU KANAZAWA':{ name:'ザ・ホテル山楽 金沢', en:'The Hotel Sanraku Kanazawa', addr:'〒920-0902 石川県金沢市尾張町1-1-1', tel:'+81762228077' },
+  'Auberge eaufeu Komatsu':{ name:'オーベルジュ オーフ', en:'Auberge eaufeu', addr:'〒923-0171 石川県小松市観音下町ロ48', tel:'+81761417080' },
+  'The Gate Hotel Kyoto Takasegawa by Hulic':{ name:'ザ・ゲートホテル京都高瀬川 by HULIC', en:'The Gate Hotel Kyoto Takasegawa', addr:'〒604-8023 京都府京都市中京区備前島町310-2', tel:'+81752568955' },
+  'Gora Kadan Hakone':{ name:'強羅花壇', en:'Gora Kadan', addr:'〒250-0408 神奈川県足柄下郡箱根町強羅1300', tel:'' },
+  'Imperial Hotel Tokyo':{ name:'帝国ホテル 東京', en:'Imperial Hotel Tokyo', addr:'〒100-8558 東京都千代田区内幸町1-1-1', tel:'+81335041111' },
+  /* Restaurants */
+  'Sushi Nakano Minami-Aoyama Tokyo':{ name:'鮨 なかの', en:'Sushi Nakano', addr:'〒107-0062 東京都港区南青山3-4-12', tel:'+81334232525' },
+  'Sumibi Yakiniku Nakahara Ichigaya':{ name:'炭火焼肉 なかはら', en:'Sumibi Yakiniku Nakahara', addr:'〒102-0085 東京都千代田区六番町4-3 GEMS市ヶ谷 9F', tel:'+81362612987' },
+  'Tempura Matoba Higashiyama Kanazawa':{ name:'てんぷら 的場', en:'Tempura Matoba', addr:'〒920-0831 石川県金沢市東山1-14-4', tel:'' },
+  'Respiracion Kanazawa':{ name:'レスピラシオン', en:'Respiración', addr:'〒920-0903 石川県金沢市博労町67', tel:'+81762258681' },
+  'Teuchi Soba Koyori Kanazawa':{ name:'こより', en:'Teuchi Soba Koyori', addr:'〒920-0043 石川県金沢市長田2-20-13', tel:'+81762054591' },
+  'Gion Nikuryori Oka Kyoto':{ name:'祇園 肉料理おか', en:'Gion Nikuryori Oka', addr:'〒605-0074 京都府京都市東山区祇園町南側577-3', tel:'+81757463465' },
+  'Nikunotakumi Miyoshi Gion Kyoto':{ name:'肉の匠 三芳', en:'Nikunotakumi Miyoshi', addr:'〒605-0074 京都府京都市東山区祇園町南側570-15', tel:'+81755612508' },
+  'Mitaka Nishi-Shinbashi Tokyo':{ name:'味享', en:'Mitaka', addr:'〒105-0003 東京都港区西新橋1-18-8 報徳ビル1階', tel:'+81368127168' },
+  /* Sights & stations — Minakami */
+  'Tenichi Museum Minakami':{ name:'天一美術館', en:'Tenichi Museum', addr:'〒379-1619 群馬県利根郡みなかみ町谷川508-2', tel:'' },
+  'Takumi no Sato Minakami':{ name:'道の駅 たくみの里', en:'Takumi no Sato', addr:'〒379-1418 群馬県利根郡みなかみ町須川847', tel:'' },
+  'Jomo-Kogen Station':{ name:'上毛高原駅', en:'Jomo-Kogen Station', addr:'〒379-1313 群馬県利根郡みなかみ町月夜野1756', tel:'' },
+  /* Kanazawa */
+  'Kenrokuen Garden Kanazawa':{ name:'兼六園', en:'Kenroku-en', addr:'〒920-0936 石川県金沢市兼六町1', tel:'' },
+  'Kanazawa Castle Park':{ name:'金沢城公園', en:'Kanazawa Castle Park', addr:'〒920-0937 石川県金沢市丸の内1-1', tel:'' },
+  'Nomura Samurai Residence Nagamachi Kanazawa':{ name:'武家屋敷跡 野村家', en:'Nomura Samurai Residence', addr:'〒920-0865 石川県金沢市長町1-3-32', tel:'' },
+  'D.T. Suzuki Museum Kanazawa':{ name:'鈴木大拙館', en:'D. T. Suzuki Museum', addr:'〒920-0964 石川県金沢市本多町3-4-20', tel:'' },
+  'Oyama Shrine Kanazawa':{ name:'尾山神社', en:'Oyama Shrine', addr:'〒920-0918 石川県金沢市尾山町11-1', tel:'' },
+  'Higashi Chaya District Kanazawa':{ name:'ひがし茶屋街', en:'Higashi Chaya District', addr:'〒920-0831 石川県金沢市東山1-13', tel:'' },
+  'Kazuemachi Chaya District Kanazawa':{ name:'主計町茶屋街', en:'Kazue-machi', addr:'〒920-0908 石川県金沢市主計町2-5', tel:'' },
+  'Kanazawa Station':{ name:'金沢駅', en:'Kanazawa Station', addr:'〒920-0858 石川県金沢市木ノ新保町1-1', tel:'' },
+  /* Toyama */
+  'Toyama Station':{ name:'富山駅', en:'Toyama Station', addr:'〒930-0001 富山県富山市明輪町1-225', tel:'' },
+  'Fugan Canal Kansui Park Toyama':{ name:'富岩運河環水公園', en:'Fugan Canal Kansui Park', addr:'〒930-0805 富山県富山市湊入船町1', tel:'' },
+  'Toyama Prefectural Museum of Art and Design':{ name:'富山県美術館', en:'Toyama Prefectural Museum of Art and Design', addr:'〒930-0806 富山県富山市木場町3-20', tel:'' },
+  'Mori Family House Higashi-Iwase Toyama':{ name:'森家', en:'Mori Family House, Iwase', addr:'〒931-8358 富山県富山市東岩瀬町108', tel:'' },
+  'Toyama Glass Art Museum':{ name:'富山市ガラス美術館', en:'Toyama Glass Art Museum', addr:'〒930-0062 富山県富山市西町5-1', tel:'' },
+  /* Komatsu */
+  'Komatsu Station':{ name:'小松駅', en:'Komatsu Station', addr:'〒923-0921 石川県小松市土居原町', tel:'' },
+  'Natadera Temple Komatsu':{ name:'那谷寺', en:'Natadera Temple', addr:'〒923-0336 石川県小松市那谷町ユ122', tel:'' },
+  'CERABO KUTANI Komatsu':{ name:'CERABO KUTANI', en:'Cerabo Kutani', addr:'〒923-0832 石川県小松市若杉町ア91', tel:'' },
+  'Noguchi Naohiko Sake Institute':{ name:'農口尚彦研究所', en:'Noguchi Naohiko Sake Institute', addr:'〒923-0171 石川県小松市観音下町ワ1-1', tel:'' },
+  /* Kyoto & day trips */
+  'Kyoto Station':{ name:'京都駅', en:'Kyoto Station', addr:'〒600-8216 京都府京都市下京区東塩小路釜殿町', tel:'' },
+  'Byodoin Temple Uji':{ name:'平等院', en:'Byodo-in', addr:'〒611-0021 京都府宇治市宇治蓮華116', tel:'' },
+  'Kuromon Market Osaka':{ name:'黒門市場', en:'Kuromon Market', addr:'〒542-0073 大阪府大阪市中央区日本橋2-4-1', tel:'' },
+  'Todaiji Temple Nara':{ name:'東大寺', en:'Todai-ji', addr:'〒630-8587 奈良県奈良市雑司町406-1', tel:'' },
+  'Himeji Castle':{ name:'姫路城', en:'Himeji Castle', addr:'〒670-0012 兵庫県姫路市本町68', tel:'' },
+  'Hiroshima Peace Memorial Park':{ name:'平和記念公園', en:'Peace Memorial Park', addr:'〒730-0811 広島県広島市中区中島町1', tel:'' },
+  /* Hakone & Tokyo */
+  'Hakone Open-Air Museum':{ name:'彫刻の森美術館', en:'The Hakone Open-Air Museum', addr:'〒250-0493 神奈川県足柄下郡箱根町二ノ平1121', tel:'' },
+  'Odawara Station':{ name:'小田原駅', en:'Odawara Station', addr:'〒250-0045 神奈川県小田原市城山1-1-1', tel:'' },
+  'Edo-Tokyo Open Air Architectural Museum':{ name:'江戸東京たてもの園', en:'Edo-Tokyo Open Air Architectural Museum', addr:'〒184-0005 東京都小金井市桜町3-7-1 都立小金井公園内', tel:'' }
+};
+window.showTaxi=function(key){
+  var j=JA_DIR[key]; if(!j)return;
+  document.getElementById('taxi-body').innerHTML=''
+    +'<div class="taxi-card">'
+    +  '<div class="taxi-to">行き先 · DESTINATION</div>'
+    +  '<div class="taxi-name">'+esc(j.name)+'</div>'
+    +  '<div class="taxi-name-en">'+esc(j.en)+'</div>'
+    +  '<div class="taxi-addr">'+esc(j.addr)+'</div>'
+    +  '<div class="taxi-ask">ここまでお願いします。</div>'
+    +  '<div class="taxi-ask-en">Please take me here.</div>'
+    +'</div>'
+    +'<div class="taxi-actions">'
+    +  '<a href="'+gm(key)+'" target="_blank" rel="noopener" class="taxi-act pri">📍 Open in Maps</a>'
+    +  (j.tel?'<a href="tel:'+j.tel+'" class="taxi-act">📞 Call</a>':'')
+    +'</div>';
+  document.getElementById('taxi-modal').classList.add('active');
+  document.body.style.overflow='hidden';
+};
+window.closeTaxi=function(){
+  document.getElementById('taxi-modal').classList.remove('active');
+  document.body.style.overflow='';
 };
 
 /* ══════════════ HELPERS ══════════════ */
@@ -1084,7 +1203,7 @@ function renderStop(stop,di,si){
     h+='<div class="map-actions">'
       +'<a href="'+gm(stop.q,stop.mapsLink)+'" target="_blank" rel="noopener" class="map-btn mp" aria-label="Open '+esc(stop.title)+' in Google Maps">📍 Maps</a>'
       +'<a href="'+nav(stop.addr||stop.q,stop.q)+'" target="_blank" rel="noopener" class="map-btn" aria-label="Directions to '+esc(stop.title)+'">🧭 Directions</a>'
-      +(stop.taxi?'<a href="'+CONFIG.goTaxi+'" target="_blank" rel="noopener" class="map-btn taxi" aria-label="Book a GO taxi">🚕 GO Taxi</a>':'')
+      +(JA_DIR[stop.q]?'<button type="button" class="map-btn taxi" onclick="showTaxi(\''+esc(stop.q).replace(/'/g,'\\\'')+'\')" aria-label="Show the taxi driver">🚕 Taxi</button>':'')
       +'<button type="button" class="map-btn" onclick="copyAddr('+di+','+si+')" aria-label="Copy address">⧉ Copy</button>'
       +'</div>';
   }
@@ -1158,7 +1277,7 @@ function renderItinerary(){
     if(day.headline)h+='<div class="day-headline">'+esc(day.headline)+'</div>';
     var ho=day.hotel?HOTELS[day.hotel]:null;
     h+=ho
-      ?'<div class="hotel-bar"><div style="font-size:15px">🏨</div><div style="flex:1;min-width:0"><div class="hb-name">'+esc(ho.name)+'</div><div class="hb-detail">'+esc(ho.area)+'</div></div><a class="hb-link" href="'+gm(ho.q,ho.mapsLink)+'" target="_blank" rel="noopener">📍 Map</a></div>'
+      ?'<div class="hotel-bar"><div style="font-size:15px">🏨</div><div style="flex:1;min-width:0"><div class="hb-name">'+esc(ho.name)+'</div><div class="hb-detail">'+esc(ho.area)+'</div></div>'+(JA_DIR[ho.q]?'<button type="button" class="hb-link" onclick="showTaxi(\''+esc(ho.q)+'\')" aria-label="Show the taxi driver">🚕 Taxi</button>':'')+'<a class="hb-link" href="'+gm(ho.q,ho.mapsLink)+'" target="_blank" rel="noopener">📍 Map</a></div>'
       :'<div class="hotel-bar none"><div style="font-size:15px">✈️</div><div style="flex:1"><div class="hb-name" style="color:#546E7A">Departure day</div><div class="hb-detail" style="color:#78909C">Evening flight home</div></div></div>';
     (day.people||[]).forEach(function(k){h+=personBar(k);});
     if(day.notes)h+='<div class="day-note-bar">'+esc(day.notes)+'</div>';
@@ -1258,7 +1377,8 @@ function renderUtilities(){
     +'<div class="util-card"><ul class="info-list">'
     +'<li><span class="info-emoji">🧳</span><div class="info-text"><strong>Send luggage ahead</strong>With two ryokan, an auberge and several train days, travel light. Hotels send suitcases ahead by takkyubin (usually next-day) — for example Tokyo → Kanazawa while you are in Minakami. We will help plan each hop.</div></li>'
     +'<li><span class="info-emoji">🚄</span><div class="info-text"><strong>Shinkansen</strong>Tokyo → Jomo-Kogen (Joetsu line) · Takasaki → Kanazawa → Komatsu → Tsuruga (Hokuriku line) · Tsuruga → Kyoto (Thunderbird) · Kyoto → Odawara (Tokaido line). Large suitcases need a reserved oversized-baggage seat.</div></li>'
-    +'<li><span class="info-emoji">🚕</span><div class="info-text"><strong>GO Taxi app</strong>Japan’s main taxi app in Tokyo, Kyoto and Kanazawa — set your pickup and destination and pay by card. In Minakami and Komatsu, taxis are scarce: transfers are arranged for you.</div></li>'
+    +'<li><span class="info-emoji">🚕</span><div class="info-text"><strong>Show the driver</strong>The <strong>Taxi</strong> button on each stop and hotel opens a full-screen card in Japanese: the name, the address and a line asking to be taken there. Hand your phone to the driver — no pronunciation required.</div></li>'
+    +'<li><span class="info-emoji">🚖</span><div class="info-text"><strong>Taxis</strong>The rear door opens and closes by itself — stand clear and do not reach for it. Cards are widely accepted; tipping is not. Your hotel will always call one for you. In Minakami and Komatsu taxis are scarce, so transfers there are arranged for you.</div></li>'
     +'<li><span class="info-emoji">📱</span><div class="info-text"><strong>Suica in Apple Wallet</strong>Wallet → + → Transit card → Suica. Works on trains, buses and at convenience stores nationwide.</div></li>'
     +'</ul></div>'
     +'<div class="section-label"><span class="sec-num">4</span>Quick Reference</div>'
