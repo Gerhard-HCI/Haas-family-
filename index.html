@@ -293,7 +293,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v10</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v11</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -352,7 +352,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v10',
+  version: 'v11',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -399,7 +399,7 @@ var CONFIG = {
 
 /* Hotels · mapsLink: paste verbatim maps.app.goo.gl links (preferred over q) */
 var HOTELS = {
-  mitsui:   { name:'Mitsui Garden Hotel Ginza', area:'Ginza · Tokyo', nights:'29 Oct – 2 Nov', addr:null, q:'Mitsui Garden Hotel Ginza Tokyo', mapsLink:null },
+  mitsui:   { name:'Mitsui Garden Hotel Ginza Premier', area:'Ginza · Tokyo', nights:'29 Oct – 2 Nov', addr:'8-13-1 Ginza, Chuo-ku, Tokyo', q:'Mitsui Garden Hotel Ginza Tokyo', mapsLink:null },
   senjuan:  { name:'Bettei Senjuan', area:'Tanigawa Onsen · Minakami', nights:'2 – 4 Nov', addr:'614 Tanigawa, Minakami-machi, Tone-gun, Gunma', q:'Bettei Senjuan Minakami', mapsLink:null },
   sanraku:  { name:'The Hotel Sanraku Kanazawa', area:'Owari-cho · near Omicho Market · Kanazawa', nights:'4 – 7 Nov', addr:'1-1-1 Owari-cho, Kanazawa, Ishikawa', q:'THE HOTEL SANRAKU KANAZAWA', mapsLink:null },
   eaufeu:   { name:'Auberge eaufeu', area:'Kanagaso · Komatsu', nights:'7 – 8 Nov', addr:'Ro-48 Kanagaso-machi, Komatsu, Ishikawa', q:'Auberge eaufeu Komatsu', mapsLink:null },
@@ -430,7 +430,7 @@ var DAYS = [
         q:'Narita International Airport Terminal 1', addr:'Narita International Airport, Narita, Chiba', mapsLink:null,
         notes:'Allow around an hour for immigration and baggage. Withdraw some yen at the 7-Bank or Japan Post ATMs in arrivals — cash is still useful, especially in the countryside.' },
       { time:'~20:30', type:'transport', badge:'Logistics', status:'logistics',
-        title:'Transfer to Ginza', sub:'Narita → Mitsui Garden Hotel Ginza',
+        title:'Transfer to Ginza', sub:'Narita → Mitsui Garden Hotel Ginza Premier',
         q:HOTELS.mitsui.q, addr:HOTELS.mitsui.addr, mapsLink:null,
         notes:'By car or the Narita Express to Tokyo Station, then a short taxi. Your hotel is in the heart of Ginza, within walking distance of the department stores and the Kabuki-za.' }
     ] },
@@ -968,6 +968,7 @@ var DISCOVER = {
    A verbatim maps.app.goo.gl mapsLink still takes priority.
 ═══════════════════════════════════════════════════════ */
 var PLACE_IDS = {
+  'Mitsui Garden Hotel Ginza Tokyo':'ChIJVVUV5eeLGGARB8QNdf7BPuU',
   'Bettei Senjuan Minakami':'ChIJYYiWRIkTHmARWmZDqfqQQhM',
   'THE HOTEL SANRAKU KANAZAWA':'ChIJV5pLKH8z-F8RJ34ns14hjiw',
   'Auberge eaufeu Komatsu':'ChIJ-UNglTRb-F8RLS82YWsM8h8',
@@ -1025,6 +1026,7 @@ var PLACE_IDS = {
 ═══════════════════════════════════════════════════════ */
 var JA_DIR = {
   /* Hotels */
+  'Mitsui Garden Hotel Ginza Tokyo':{ name:'三井ガーデンホテル銀座プレミア', en:'Mitsui Garden Hotel Ginza Premier', addr:'〒104-0061 東京都中央区銀座8-13-1', tel:'+81335431131' },
   'Bettei Senjuan Minakami':{ name:'別邸 仙寿庵', en:'Bettei Senjuan', addr:'〒379-1619 群馬県利根郡みなかみ町谷川614', tel:'+81278204141' },
   'THE HOTEL SANRAKU KANAZAWA':{ name:'ザ・ホテル山楽 金沢', en:'The Hotel Sanraku Kanazawa', addr:'〒920-0902 石川県金沢市尾張町1-1-1', tel:'+81762228077' },
   'Auberge eaufeu Komatsu':{ name:'オーベルジュ オーフ', en:'Auberge eaufeu', addr:'〒923-0171 石川県小松市観音下町ロ48', tel:'+81761417080' },
