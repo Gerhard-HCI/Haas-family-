@@ -293,7 +293,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v12</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v13</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -352,7 +352,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v12',
+  version: 'v13',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -464,19 +464,19 @@ var DAYS = [
         alert:FRAGRANCE }
     ] },
 
-  /* ── DAY 4 · Sun 1 Nov · Nakahara ── */
+  /* ── DAY 4 · Sun 1 Nov · Jojoen Yugentei ── */
   { date:'2026-11-01', dayNum:4, weekday:'Sunday, 1 November', city:'Tokyo', hotel:'mitsui', people:[], occasion:null, feature:true,
-    headline:'A guided day and Tokyo’s best yakiniku',
-    notes:'A guided tour of the city, then an early dinner at the yakiniku counter Tokyo chefs go to on their night off. Last night in Tokyo for now — tomorrow you head for the mountains.',
+    headline:'A guided day and wagyu in Akasaka',
+    notes:'A guided tour of the city, then dinner at Jojoen Yugentei, Tokyo’s grand old name in yakiniku. Last night in Tokyo for now — tomorrow you head for the mountains.',
     stops:[
       { time:'Day', type:'activity', badge:'To be confirmed', status:'pending',
         title:'Guided tour of Tokyo', sub:'Private guide · timing and route to be confirmed',
         notes:'Your guide will be introduced closer to the date. We will shape the day around your interests — gardens, craft, markets or architecture.' },
-      { time:'17:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
-        title:'Sumibi Yakiniku Nakahara', sub:'Dinner · Yakiniku · Ichigaya',
-        facts:['Wagyu yakiniku','2 covers','Tabelog Yakiniku 100'],
-        q:'Sumibi Yakiniku Nakahara Ichigaya', addr:'GEMS Ichigaya 9F, 4-3 Rokubancho, Chiyoda-ku, Tokyo', mapsLink:null,
-        notes:'Kentaro Nakahara is the closest thing Tokyo has to a yakiniku philosopher. He buys whole cattle from farmers he knows, then cuts every part to its own thickness and angle — he famously dislikes square slices — so each cut cooks and chews exactly as it should. Start with the tongue, which is the house signature, then work through cuts most visitors never see. Staff grill or guide you at the table. Nothing like a backyard barbecue: this is wagyu treated with the precision of a sushi counter.',
+      { time:'18:00', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
+        title:'Jojoen Yugentei Akasaka', sub:'Dinner · Yakiniku · Akasaka',
+        facts:['Wagyu yakiniku','2 covers','Private rooms'],
+        q:'Jojoen Yugentei Akasaka', addr:'Akasaka Nakagawa Bldg B1–1F, 3-11-3 Akasaka, Minato-ku, Tokyo', mapsLink:'https://maps.app.goo.gl/hvvuvKmX6hH21XPCA?g_st=ic',
+        notes:'Jojoen is the name that made yakiniku respectable in Tokyo — the Roppongi original opened in the 1970s and turned a smoky, beer-hall habit into something you could take a client to. Yugentei is its grand-occasion line: private rooms, kimono-clad service and top-grade wagyu, with staff happy to grill for you. Order a set and let it unfold — beef tongue with lemon, then the marbled kalbi and loin with Jojoen’s famous tare, and the oxtail soup to finish. Less of a chef’s counter than Nakahara, more of a polished, comfortable Tokyo institution — the right call for a relaxed last evening before the mountains.',
         alert:'Grill smoke — wear something you won’t mind smelling of charcoal. No perfume, please.' }
     ] },
 
@@ -827,7 +827,7 @@ var DAYS = [
   /* ── DAY 20 · Tue 17 Nov · To Tokyo ── */
   { date:'2026-11-17', dayNum:20, weekday:'Tuesday, 17 November', city:'Tokyo', hotel:'imperial', people:['hosts'], occasion:null, feature:false,
     headline:'Back to Tokyo',
-    notes:'Down from Hakone to the Imperial Hotel for your final two nights, and dinner together with Tomoko-san and Gerhard.',
+    notes:'Down from Hakone to the Imperial Hotel for your final two nights, and yakiniku together at Nakahara with Tomoko-san and Gerhard.',
     stops:[
       { time:'', type:'transport', badge:'To be confirmed', status:'pending',
         title:'Hakone → Tokyo', sub:'By car or Romancecar · timing to be confirmed',
@@ -837,9 +837,12 @@ var DAYS = [
         title:'Check in — Imperial Hotel Tokyo', sub:'Hibiya · facing the Imperial Palace gardens',
         q:HOTELS.imperial.q, addr:HOTELS.imperial.addr, mapsLink:null,
         notes:'Tokyo’s grand old hotel, opposite Hibiya Park and a short walk from Ginza.' },
-      { time:'Eve', type:'restaurant', badge:'To be confirmed', status:'pending',
-        title:'Dinner together', sub:WITHUS + ' · venue to be confirmed',
-        notes:'Details to follow.' }
+      { time:'20:30', type:'restaurant', badge:'Confirmed', status:'confirmed', featured:true,
+        title:'Sumibi Yakiniku Nakahara', sub:'Dinner together · Yakiniku · Ichigaya',
+        facts:['Wagyu yakiniku','4 covers','With Tomoko-san & Gerhard'],
+        q:'Sumibi Yakiniku Nakahara Ichigaya', addr:'GEMS Ichigaya 9F, 4-3 Rokubancho, Chiyoda-ku, Tokyo', mapsLink:null,
+        notes:'Kentaro Nakahara is the closest thing Tokyo has to a yakiniku philosopher. He buys whole cattle from farmers he knows, then cuts every part to its own thickness and angle — he famously dislikes square slices — so each cut cooks and chews exactly as it should. Start with the tongue, which is the house signature, then work through cuts most visitors never see. Staff grill or guide you at the table. Nothing like a backyard barbecue: this is wagyu treated with the precision of a sushi counter.',
+        alert:'Grill smoke — wear something you won’t mind smelling of charcoal. No perfume, please.' }
     ] },
 
   /* ── DAY 21 · Wed 18 Nov · Yakitori ── */
@@ -977,6 +980,7 @@ var PLACE_IDS = {
   'Imperial Hotel Tokyo':'ChIJT7wVXe6LGGARpg6sWitWN8Y',
   'Sushi Nakano Minami-Aoyama Tokyo':'ChIJa9yHuliLGGAR5oWlfGXlwFg',
   'Sumibi Yakiniku Nakahara Ichigaya':'ChIJmVnECGGMGGARtOVsV8yziLo',
+  'Jojoen Yugentei Akasaka':'ChIJqynjsniMGGARGhuVQmtSgOo',
   'Tempura Matoba Higashiyama Kanazawa':'ChIJq-_hXpAz-F8R2bDa_18VRUc',
   'Respiracion Kanazawa':'ChIJf8WQHXEz-F8RyloAPIsk22Q',
   'Gion Nikuryori Oka Kyoto':'ChIJQ4VZrZIIAWARa4INYMWPmvg',
@@ -1035,6 +1039,7 @@ var JA_DIR = {
   'Imperial Hotel Tokyo':{ name:'帝国ホテル 東京', en:'Imperial Hotel Tokyo', addr:'〒100-8558 東京都千代田区内幸町1-1-1', tel:'+81335041111' },
   /* Restaurants */
   'Sushi Nakano Minami-Aoyama Tokyo':{ name:'鮨 なかの', en:'Sushi Nakano', addr:'〒107-0062 東京都港区南青山3-4-12', tel:'+81334232525' },
+  'Jojoen Yugentei Akasaka':{ name:'叙々苑 游玄亭 赤坂', en:'Jojoen Yugentei Akasaka', addr:'〒107-0052 東京都港区赤坂3-11-3 赤坂中川ビルディング B1・1F', tel:'+81335828989' },
   'Sumibi Yakiniku Nakahara Ichigaya':{ name:'炭火焼肉 なかはら', en:'Sumibi Yakiniku Nakahara', addr:'〒102-0085 東京都千代田区六番町4-3 GEMS市ヶ谷 9F', tel:'+81362612987' },
   'Tempura Matoba Higashiyama Kanazawa':{ name:'てんぷら 的場', en:'Tempura Matoba', addr:'〒920-0831 石川県金沢市東山1-14-4', tel:'' },
   'Respiracion Kanazawa':{ name:'レスピラシオン', en:'Respiración', addr:'〒920-0903 石川県金沢市博労町67', tel:'+81762258681' },
