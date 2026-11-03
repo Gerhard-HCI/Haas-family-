@@ -285,6 +285,63 @@
       .disc-switch button{flex:1 1 0}
     }
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    /* ── JOURNAL · documentary reel (dark, single look) ── */
+    #tab-journal.tab-panel{padding-left:0;padding-right:0}
+    .jr{background-color:#0A1220;color:#EDE6D6;border-radius:18px;overflow:hidden;margin:0 14px}
+    .jr-sprocket{height:14px;background-color:#0A1220;background-image:repeating-linear-gradient(90deg,transparent 0 10px,rgba(237,230,214,.13) 10px 22px,transparent 22px 30px);background-size:30px 6px;background-repeat:repeat-x;background-position:0 4px;border-bottom:1px solid rgba(237,230,214,.12)}
+    .jr-sprocket.bottom{border-bottom:none;border-top:1px solid rgba(237,230,214,.12)}
+    .jr-open{padding:34px 22px 30px;text-align:center;background-color:#0A1220}
+    .jr-reel{font-family:'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.32em;color:#E79AAE;text-transform:uppercase}
+    .jr-open h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(34px,8vw,54px);line-height:1.02;letter-spacing:.01em;margin:14px 0 10px;color:#EDE6D6}
+    .jr-open h2 em{font-style:italic;color:#E79AAE}
+    .jr-open p{font-size:13px;color:rgba(237,230,214,.72);max-width:46ch;margin:0 auto;line-height:1.6}
+    .jr-count{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-family:'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(237,230,214,.45);text-transform:uppercase}
+    .jr-count b{color:#EDE6D6;font-weight:500}
+    .jr-index{display:flex;gap:6px;padding:0 16px 18px;justify-content:center;flex-wrap:wrap;background-color:#0A1220}
+    .jr-index button{background-color:#0A1220!important;border:1px solid rgba(237,230,214,.18);color:#EDE6D6!important;border-radius:99px;padding:9px 13px;font-size:11px;font-weight:500;letter-spacing:.06em;min-height:36px}
+    .jr-ch{border-top:1px solid rgba(237,230,214,.12);padding:34px 0 10px;background-color:#0A1220;scroll-margin-top:12px}
+    .jr-ch-head{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:end;padding:0 20px 14px}
+    .jr-ch-num{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:60px;line-height:.8;color:#E79AAE;grid-row:span 2;white-space:nowrap}
+    .jr-ch-date{font-family:'SF Mono',Menlo,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(237,230,214,.45)}
+    .jr-ch-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:400;font-style:italic;line-height:1.1;color:#EDE6D6}
+    .jr-ch-intro{font-size:13.5px;line-height:1.7;color:rgba(237,230,214,.72);padding:0 20px 8px;max-width:62ch}
+    .jr-live{display:inline-block;font-family:'Jost','DM Sans',sans-serif;font-style:normal;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background-color:#c8627c;color:#FFFFFF;padding:3px 8px;border-radius:99px;vertical-align:middle;margin-left:8px}
+    .jr-scene{padding:22px 0 6px}
+    .jr-media{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+    .jr-m{position:relative;background-color:#0F1A2C!important;overflow:hidden;cursor:zoom-in;border:0;padding:0;display:block;width:100%;max-width:100%;aspect-ratio:4/5}
+    .jr-m.lead{grid-column:1/-1;aspect-ratio:auto}
+    .jr-m.wide{grid-column:1/-1;aspect-ratio:16/10}
+    .jr-m img{width:100%;height:100%;object-fit:cover;display:block}
+    .jr-m.lead img{height:auto;max-height:78vh;object-fit:contain;margin:0 auto;background-color:#0F1A2C}
+    .jr-cap{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:12px 20px 0;align-items:baseline}
+    .jr-tc{font-family:'SF Mono',Menlo,monospace;font-size:10.5px;color:#E79AAE;letter-spacing:.06em;white-space:nowrap;font-variant-numeric:tabular-nums}
+    .jr-cap-text{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;line-height:1.4;color:#EDE6D6}
+    .jr-by{grid-column:2;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,230,214,.45)}
+    .jr-quote{margin:26px 20px 8px;padding:4px 0 4px 18px;border-left:1px solid #c8627c}
+    .jr-quote q{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:22px;line-height:1.3;color:#EDE6D6}
+    .jr-quote div{margin-top:8px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,230,214,.45)}
+    .jr-note{margin:22px 20px 6px;font-size:12.5px;line-height:1.6;color:rgba(237,230,214,.72);display:flex;gap:12px;align-items:baseline}
+    .jr-note .jr-tc{flex-shrink:0}
+    .jr-end{border-top:1px solid rgba(237,230,214,.12);padding:34px 22px 30px;text-align:center;background-color:#0A1220}
+    .jr-end h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-style:italic;font-size:30px;margin:10px 0 12px;color:#EDE6D6}
+    .jr-end ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 8px;margin:14px 0 0;padding:0}
+    .jr-end li{font-size:11px;border:1px solid rgba(237,230,214,.12);border-radius:99px;padding:5px 11px;color:rgba(237,230,214,.72)}
+    .jr-end p{font-size:12px;color:rgba(237,230,214,.45);max-width:48ch;margin:16px auto 0;line-height:1.6}
+    .jr-lb{position:fixed;inset:0;z-index:10000;background-color:#04080E;display:flex;flex-direction:column;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+    .jr-lb[hidden]{display:none}
+    .jr-lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:10px;background-color:#04080E}
+    .jr-lb-stage img{max-width:100%;max-height:100%;object-fit:contain}
+    .jr-lb-bar{display:flex;align-items:center;gap:10px;padding:10px 14px 16px;color:#EDE6D6;background-color:#04080E}
+    .jr-lb-cap{flex:1;min-width:0;font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;line-height:1.35;color:#EDE6D6}
+    .jr-lb-cap small{display:block;font-family:'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;color:#E79AAE;margin-bottom:3px}
+    .jr-lb button{background-color:#1B2230!important;border:1px solid rgba(237,230,214,.25);color:#EDE6D6!important;width:44px;height:44px;border-radius:50%;font-size:17px;flex-shrink:0}
+    .jr-lb .jr-lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);z-index:2}
+    @media(min-width:700px){
+      .jr{margin:0}
+      #tab-journal.tab-panel{padding-left:32px;padding-right:32px}
+      .jr-ch-head,.jr-ch-intro,.jr-cap{padding-left:32px;padding-right:32px}
+      .jr-quote,.jr-note{margin-left:32px;margin-right:32px}
+    }
   </style>
 </head>
 <body style="background-color:#FAF8F4">
@@ -293,7 +350,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v13</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v14</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -312,6 +369,7 @@
   </div>
   <nav class="tab-nav" aria-label="Sections">
     <button class="tab-btn active" data-tab="itinerary">Itinerary</button>
+    <button class="tab-btn" data-tab="journal">Journal</button>
     <button class="tab-btn" data-tab="tables">Tables</button>
     <button class="tab-btn" data-tab="discover">Discover</button>
     <button class="tab-btn" data-tab="utilities">Utilities</button>
@@ -321,6 +379,7 @@
 
 <main id="main-content" style="background-color:#FAF8F4">
   <section id="tab-itinerary" class="tab-panel active" aria-label="Itinerary" style="background-color:#FAF8F4"></section>
+  <section id="tab-journal"   class="tab-panel" aria-label="Journal" style="background-color:#FAF8F4"></section>
   <section id="tab-tables"    class="tab-panel" aria-label="Reservations" style="background-color:#FAF8F4"></section>
   <section id="tab-discover"  class="tab-panel" aria-label="Discover" style="background-color:#FAF8F4"></section>
   <section id="tab-utilities" class="tab-panel" aria-label="Utilities" style="background-color:#FAF8F4"></section>
@@ -352,7 +411,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v13',
+  version: 'v14',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -1468,6 +1527,156 @@ function renderEmergency(){
     +'<div class="section-label"><span class="sec-num">6</span>Useful Japanese</div><div class="util-card"><ul class="info-list">'+ph+'</ul></div>';
 }
 
+/* ══════════════ JOURNAL · the trip so far, from the group chat ══════════════
+   Times are when each message reached the group chat, in Japan time (JST).
+   Photos live in /journal/ next to this page as pNNNNNNNN.jpg. */
+var JR_DIMS = {"p00000313":[1600,1200],"p00000366":[1199,1600],"p00000367":[1200,1600],"p00000368":[1600,1200],"p00000369":[1200,1600],"p00000370":[1200,1600],"p00000371":[1200,1600],"p00000373":[1200,1600],"p00000375":[1600,1200],"p00000376":[1600,1200],"p00000377":[1200,1600],"p00000378":[1600,1200],"p00000379":[1600,1200],"p00000380":[1200,1599],"p00000381":[1600,1200],"p00000382":[1600,1200],"p00000384":[1600,1200],"p00000386":[1600,1200],"p00000388":[1199,1600],"p00000389":[1600,1200],"p00000390":[1600,1200],"p00000391":[1600,1200],"p00000392":[1600,1200],"p00000393":[1600,1200],"p00000394":[1200,1600],"p00000395":[1600,1200],"p00000400":[1200,1600],"p00000401":[1200,1600],"p00000402":[1200,1600],"p00000403":[1600,1200],"p00000404":[1200,1600],"p00000405":[1200,1600],"p00000406":[1200,1600],"p00000407":[1200,1600],"p00000409":[1600,1200],"p00000410":[1200,1600],"p00000411":[1600,1200],"p00000412":[1200,1600],"p00000448":[1200,1600],"p00000451":[1600,1200],"p00000452":[1600,1200],"p00000453":[1200,1600],"p00000476":[1600,1200],"p00000477":[1600,1200],"p00000478":[1600,1200],"p00000479":[1200,1600],"p00000480":[1600,1200],"p00000481":[1600,1200],"p00000482":[1600,1200],"p00000483":[1200,1600],"p00000484":[1200,1600],"p00000485":[1200,1600],"p00000486":[1200,1600]};
+var JOURNAL = [
+  { num:'29', idx:'29 Oct · Arrival', date:'Thursday · 29 October', title:'Arrival',
+    intro:'An evening landing at Narita and, instead of a car, the Keisei Sky Access train, helped along by friendly locals and Google Maps. It ran all the way through to Shimbashi, and from there it was a short late-night walk to the Mitsui Garden Hotel in Ginza.',
+    blocks:[
+      { t:'scene', tc:'21:25', by:'Dee Haas', cap:'Arrived safely, and the first photo in Japan.', m:['p00000313'] },
+      { t:'quote', q:'The train was super-easy and we just stayed on it until our stop.', by:'Dee Haas · 00:05, from the hotel' }
+    ] },
+  { num:'30', idx:'30 Oct · First day', date:'Friday · 30 October', title:'A first walk, and soba',
+    intro:'A slow start and breakfast at the hotel, then Gerhard at the door at 11:10 for a walk of around four kilometres through the neighbourhood. For the evening Tomoko suggested something easy rather than another long tasting menu: Ginza Sanada SIX, for excellent soba and a run of seasonal dishes.',
+    blocks:[
+      { t:'quote', q:'Gerhard is an excellent guide and the restaurant looks spot on!', by:'Richard Haas · 15:44' },
+      { t:'note', tc:'19:30', text:'Dinner at Ginza Sanada SIX, on the upper floors of Ginza Six.' },
+      { t:'quote', q:'Great first day in Japan thanks to you both.', by:'Richard Haas · 22:21' }
+    ] },
+  { num:'31', idx:'31 Oct · Kagurazaka', date:'Saturday · 31 October', title:'Kagurazaka, then sushi',
+    intro:'Two metro lines to Iidabashi, out of exit B3, and into Gerhard\'s neighbourhood: old shops, a vermilion temple gate, ramen at the counter and coffee in the sun. Then an early dinner together at Sushi Nakano, and a nightcap at a bar the two of them were still talking about the next morning.',
+    blocks:[
+      { t:'quote', q:'We\'ve arrived! Outside exit B3…', by:'Richard Haas · 11:25' },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'A traditional footwear shop: the master among his geta and woven sandals.', m:['p00000366','p00000368','p00000367','p00000369'] },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'Out on the street with Gerhard and Tomoko.', m:['p00000370','p00000371'] },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'At the red gate of Zenkoku-ji, Kagurazaka\'s Bishamonten temple.', m:['p00000373'] },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'Tomoko has a word at the door, and lunch is ramen at the counter.', m:['p00000375','p00000377','p00000376','p00000378'] },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'A little statue by a red postbox, coffee with Tomoko, and a rest on a bench.', m:['p00000380','p00000379','p00000381'] },
+      { t:'scene', tc:'09:08 +1', by:'Dee Haas', cap:'Sushi Nakano. “The Sushi Master and his assistant at work!”', m:['p00000394','p00000388','p00000389','p00000392','p00000393','p00000395','p00000390','p00000391'] },
+      { t:'scene', tc:'09:05 +1', by:'Dee Haas', cap:'Afterwards, cocktails across a marble bar.', m:['p00000382','p00000384','p00000386'] },
+      { t:'quote', q:'What was the name of the bar we went to last night? It was very special!', by:'Dee Haas · the next morning' }
+    ] },
+  { num:'01', idx:'1 Nov · Asakusa', date:'Sunday · 1 November', title:'A day of their own',
+    intro:'No programme today. A look for Mount Fuji from the top of the Mandarin Oriental (hazy that way, clear towards Skytree), then Senso-ji, then coffee from the coffee map. In the evening, a twist: Nakahara had them down for the 17th. Within a quarter of an hour Tomoko had a table at Jojoen Yugentei in Akasaka.',
+    blocks:[
+      { t:'scene', tc:'13:03', by:'Dee Haas', cap:'The Mandarin Oriental: autumn branches in the lobby, and Skytree on a clear horizon.', m:['p00000409','p00000407','p00000410'] },
+      { t:'scene', tc:'13:01', by:'Dee Haas', cap:'Senso-ji. “Despite the other tourists, it is lovely!”', m:['p00000401','p00000400','p00000402','p00000403','p00000404','p00000405','p00000406'] },
+      { t:'scene', tc:'13:06', by:'Dee Haas', cap:'Sukemasa Coffee, found on the coffee map.', m:['p00000411','p00000412'] },
+      { t:'note', tc:'17:11', text:'At Nakahara, a mix-up: the counter had been moved to 17 November, and the plan never caught up. Tomoko booked Jojoen Yugentei in Akasaka, the upscale house of Jojoen, and the two of them simply jumped into another taxi.' },
+      { t:'quote', q:'It\'ll also be interesting to compare it with Nakahara on the 17th.', by:'Tomoko Morikawa · 17:34' },
+      { t:'scene', tc:'18:54', by:'Dee Haas', cap:'Yugentei: wagyu on the grill, and corn “off the cob”.', m:['p00000448','p00000451','p00000452','p00000453'] },
+      { t:'quote', q:'Richard very happy! He had sirloin steak pieces and I had shredded leek with strip loin wrapped around.', by:'Dee Haas · 19:19' }
+    ] },
+  { num:'2–3', idx:'2–3 Nov · Minakami', date:'Monday – Tuesday · 2–3 November', title:'Into the mountains', live:true,
+    intro:'Off early to buy tickets at Tokyo Station, then the Shinkansen to Takasaki and the local line up to Minakami, with time for coffee before the ryokan\'s 14:10 pick-up. Two nights at Bettei Senjuan: onsen before breakfast, the Tenichi Art Museum, the garden, and the maples starting to turn.',
+    blocks:[
+      { t:'scene', tc:'16:15 +1', by:'Dee Haas', cap:'On the way: a cold drink from the vending machines, then the local line with the luggage.', m:['p00000476','p00000477'] },
+      { t:'quote', q:'I think I am in a James Bond set!', by:'Richard Haas · 15:22, on arrival' },
+      { t:'scene', tc:'16:15 +1', by:'Dee Haas', cap:'A welcome sweet with a maple leaf, and the room\'s own onsen open to the trees.', m:['p00000479','p00000478'] },
+      { t:'quote', q:'Onsen very relaxing and stunning view — what an experience!', by:'Richard Haas · 16:23' },
+      { t:'scene', tc:'16:15 +1', by:'Dee Haas', cap:'Kaiseki: an ice-filled bowl with blue glass, and sashimi under autumn leaves.', m:['p00000480','p00000481'] },
+      { t:'scene', tc:'16:19 +1', by:'Dee Haas', cap:'The grounds in early autumn: a rainbow from the window, water running through the garden, and the two of them on the lawn in ryokan wear.', m:['p00000485','p00000484','p00000486','p00000482'] },
+      { t:'scene', tc:'16:19', by:'Dee Haas', cap:'The tea tray in the room.', m:['p00000483'] },
+      { t:'quote', q:'We are having the BEST time here! … we are now soooo relaxed and never want to leave!!', by:'Dee Haas · 3 November, 16:15' }
+    ] }
+];
+var JR_RANGE = '29 Oct – 3 Nov';
+var JR_NEXT = ['4 · Kanazawa','5 – 7 · Kanazawa, Toyama & Komatsu','8 – 14 · Kyoto, Osaka, Nara, Himeji & Hiroshima','15 – 16 · Gora Kadan, Hakone','17 · Nakahara, at last','18 · Farewell at Mitaka','19 · Sayonara'];
+
+var JR_FLAT = [];
+function jrSrc(id){return 'journal/'+id+'.jpg';}
+function jrLandscape(id){var d=JR_DIMS[id];return d&&d[0]>d[1];}
+function jrMediaHTML(id,cls,cap,tc){
+  var i=JR_FLAT.length; JR_FLAT.push({id:id,cap:cap,tc:tc});
+  var d=JR_DIMS[id]||[4,5];
+  var ratio=cls==='lead'?' style="aspect-ratio:'+d[0]+'/'+d[1]+'"':'';
+  return '<button type="button" class="jr-m '+cls+'"'+ratio+' data-jr="'+i+'" aria-label="Open: '+esc(cap)+'"><img src="'+jrSrc(id)+'" alt="'+esc(cap)+'" loading="lazy" decoding="async"></button>';
+}
+function jrScene(b){
+  var ids=b.m.slice(), out=[];
+  var portraits=ids.filter(function(x){return !jrLandscape(x);});
+  var leadNeeded = ids.length===1 || (portraits.length%2===1);
+  var leadId = leadNeeded ? (ids.length===1 ? ids[0] : portraits[0]) : null;
+  if(leadId){ out.push(jrMediaHTML(leadId,'lead',b.cap,b.tc)); ids.splice(ids.indexOf(leadId),1); }
+  ids.forEach(function(x){ out.push(jrMediaHTML(x, jrLandscape(x)?'wide':'', b.cap, b.tc)); });
+  return '<div class="jr-scene"><div class="jr-media">'+out.join('')+'</div>'
+    +'<div class="jr-cap"><span class="jr-tc">'+esc(b.tc)+'</span><span class="jr-cap-text">'+esc(b.cap)+'</span>'
+    +'<span class="jr-by">'+(b.m.length>1?b.m.length+' frames · ':'')+esc(b.by)+'</span></div></div>';
+}
+function renderJournal(){
+  JR_FLAT=[];
+  var photos=0;
+  JOURNAL.forEach(function(c){c.blocks.forEach(function(b){if(b.m)photos+=b.m.length;});});
+  var h='<div class="jr"><div class="jr-sprocket"></div>'
+    +'<div class="jr-open"><div class="jr-reel">Reel one · Tokyo → Minakami</div>'
+    +'<h2>The journey <em>so far</em></h2>'
+    +'<p>The trip as it happened, told through the photographs and messages Richard, Dee, Tomoko and Gerhard sent each other along the way. Times show when each one reached the group chat, in Japan time. Tap any photo to see it full size.</p>'
+    +'<div class="jr-count"><span><b>'+photos+'</b> photographs</span><span><b>'+JOURNAL.length+'</b> chapters</span><span><b>'+esc(JR_RANGE)+'</b></span></div></div>'
+    +'<div class="jr-index">';
+  JOURNAL.forEach(function(c,i){h+='<button type="button" data-jr-go="jr-ch-'+i+'">'+esc(c.idx)+'</button>';});
+  h+='</div>';
+  JOURNAL.forEach(function(c,i){
+    h+='<section class="jr-ch" id="jr-ch-'+i+'"><div class="jr-ch-head"><div class="jr-ch-num">'+esc(c.num)+'</div>'
+      +'<div class="jr-ch-date">'+esc(c.date)+'</div>'
+      +'<div class="jr-ch-title">'+esc(c.title)+(c.live?'<span class="jr-live">In progress</span>':'')+'</div></div>'
+      +'<div class="jr-ch-intro">'+esc(c.intro)+'</div>';
+    c.blocks.forEach(function(b){
+      if(b.t==='scene')h+=jrScene(b);
+      else if(b.t==='quote')h+='<div class="jr-quote"><q>'+esc(b.q)+'</q><div>'+esc(b.by)+'</div></div>';
+      else if(b.t==='note')h+='<div class="jr-note"><span class="jr-tc">'+esc(b.tc)+'</span><span>'+esc(b.text)+'</span></div>';
+    });
+    h+='</section>';
+  });
+  h+='<div class="jr-end"><div class="jr-reel">To be continued</div><h3>Still to come</h3><ul>'
+    +JR_NEXT.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')
+    +'</ul><p>New chapters are added as the photographs come in.</p></div>'
+    +'<div class="jr-sprocket bottom"></div></div>';
+  var el=document.getElementById('tab-journal');
+  el.innerHTML=h;
+  var lb=document.getElementById('jr-lb');
+  if(!lb){
+    lb=document.createElement('div');
+    lb.className='jr-lb';lb.id='jr-lb';lb.hidden=true;
+    lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Journal viewer');
+    lb.innerHTML='<button type="button" class="jr-lb-close" data-lb="close" aria-label="Close">✕</button>'
+      +'<div class="jr-lb-stage" id="jr-lb-stage"></div>'
+      +'<div class="jr-lb-bar"><button type="button" data-lb="prev" aria-label="Previous">‹</button><div class="jr-lb-cap" id="jr-lb-cap"></div><button type="button" data-lb="next" aria-label="Next">›</button></div>';
+    document.body.appendChild(lb);
+    lb.addEventListener('click',function(e){
+      var b=e.target.closest('[data-lb]');
+      if(b){var a=b.getAttribute('data-lb'); if(a==='close')jrClose(); else jrOpen(jrIdx+(a==='next'?1:-1)); return;}
+      if(e.target===lb||e.target.id==='jr-lb-stage')jrClose();
+    });
+    var sx=null;
+    lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+    lb.addEventListener('touchend',function(e){ if(sx===null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50)jrOpen(jrIdx+(dx<0?1:-1)); sx=null; });
+    document.addEventListener('keydown',function(e){
+      if(lb.hidden)return;
+      if(e.key==='Escape')jrClose(); else if(e.key==='ArrowRight')jrOpen(jrIdx+1); else if(e.key==='ArrowLeft')jrOpen(jrIdx-1);
+    });
+  }
+  el.addEventListener('click',function(e){
+    var g=e.target.closest('[data-jr-go]');
+    if(g){ var t=document.getElementById(g.getAttribute('data-jr-go')); if(t)t.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+    var m=e.target.closest('[data-jr]');
+    if(m){ jrOpen(parseInt(m.getAttribute('data-jr'),10)); }
+  });
+}
+var jrIdx=0;
+function jrOpen(i){
+  jrIdx=(i+JR_FLAT.length)%JR_FLAT.length;
+  var it=JR_FLAT[jrIdx];
+  document.getElementById('jr-lb-stage').innerHTML='<img src="'+jrSrc(it.id)+'" alt="'+esc(it.cap)+'">';
+  document.getElementById('jr-lb-cap').innerHTML='<small>'+esc(it.tc)+' JST · '+(jrIdx+1)+' / '+JR_FLAT.length+'</small>'+esc(it.cap);
+  document.getElementById('jr-lb').hidden=false;
+}
+function jrClose(){
+  var lb=document.getElementById('jr-lb'); if(!lb||lb.hidden)return;
+  lb.hidden=true; document.getElementById('jr-lb-stage').innerHTML='';
+}
+
 /* ══════════════ TABS + INIT ══════════════ */
 function safe(fn,name){try{fn();}catch(e){if(window.console)console.error(name+' error:',e);}}
 document.querySelector('.tab-nav').addEventListener('click',function(e){
@@ -1476,12 +1685,13 @@ document.querySelector('.tab-nav').addEventListener('click',function(e){
   document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===name);});
   document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.toggle('active',p.id==='tab-'+name);});
   document.getElementById('main-content').scrollTop=0;
+  if(name!=='journal'){safe(jrClose,'Journal');}
 });
 function fixHeaderOffset(){var h=document.getElementById('app-header'),m=document.getElementById('main-content');if(h&&m)m.style.paddingTop=h.offsetHeight+'px';}
 function init(){
   safe(function(){document.getElementById('hdr-ver').textContent=CONFIG.version;},'Version');
   safe(renderHeaderChips,'Chips');
-  safe(renderItinerary,'Itinerary');safe(renderTables,'Tables');safe(renderDiscover,'Discover');
+  safe(renderItinerary,'Itinerary');safe(renderJournal,'Journal');safe(renderTables,'Tables');safe(renderDiscover,'Discover');
   safe(renderUtilities,'Utilities');safe(renderEmergency,'Emergency');
   safe(tickClock,'Clock');setInterval(function(){safe(tickClock,'Clock');},1000);
   fixHeaderOffset();
