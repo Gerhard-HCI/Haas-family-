@@ -352,7 +352,7 @@
   <div class="hdr-top">
     <div class="hdr-left">
       <div>
-        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v31</span></div>
+        <div class="hdr-dest">Japan · Autumn 2026<span class="hdr-ver" id="hdr-ver">v32</span></div>
         <div class="hdr-hc">Happy Camper</div>
       </div>
     </div>
@@ -413,7 +413,7 @@
             Haas November 2–3 Happy Camper Proposal (PDF · Minakami)
 ═══════════════════════════════════════════════════════ */
 var CONFIG = {
-  version: 'v31',
+  version: 'v32',
   tripTitle: 'Japan in Autumn',
   client: 'Richard & Dee Haas',
   startDate: '2026-10-29',
@@ -1858,7 +1858,7 @@ function renderJournal(){
   }
   el.addEventListener('click',function(e){
     var g=e.target.closest('[data-jr-go]');
-    if(g){ var t=document.getElementById(g.getAttribute('data-jr-go')); if(t)t.scrollIntoView({behavior:'smooth',block:'start'}); return; }
+    if(g){ jrScrollTo(document.getElementById(g.getAttribute('data-jr-go'))); return; }
     var m=e.target.closest('[data-jr]');
     if(m){ jrOpen(parseInt(m.getAttribute('data-jr'),10)); }
   });
@@ -1872,6 +1872,27 @@ function jrOpen(i){
     : '<img src="'+jrSrc(it.id)+'" alt="'+esc(it.cap)+'">';
   document.getElementById('jr-lb-cap').innerHTML='<small>'+esc(it.tc)+' JST · '+(jrIdx+1)+' / '+JR_FLAT.length+'</small>'+esc(it.cap);
   document.getElementById('jr-lb').hidden=false;
+}
+/* Scroll the journal so a chapter sits just below the fixed header */
+function jrScrollTo(el){
+  var mc=document.getElementById('main-content'),hd=document.getElementById('app-header');
+  if(!mc||!el)return;
+  mc.scrollTop+=el.getBoundingClientRect().top-(hd?hd.offsetHeight:0)-10;
+}
+/* Chapter date range from its index label, e.g. "16 Nov · Fuji!" or "2–3 Nov · Minakami" */
+function jrRange(c){
+  var m=/^(\d+)(?:\s*–\s*(\d+))?\s+(Oct|Nov)/.exec(c.idx||'');if(!m)return null;
+  var mo=m[3]==='Oct'?'10':'11',pad=function(x){return ('0'+x).slice(-2);};
+  return ['2026-'+mo+'-'+pad(m[1]),'2026-'+mo+'-'+pad(m[2]||m[1])];
+}
+/* On opening the Journal during the trip, jump to today\'s chapter (or the latest one so far) */
+function jrGoToday(){
+  var t=isoToday();
+  if(t<CONFIG.startDate||t>CONFIG.endDate)return;
+  var pick=-1;
+  JOURNAL.forEach(function(c,i){var r=jrRange(c);if(r&&r[0]<=t)pick=i;});
+  if(pick<0)return;
+  jrScrollTo(document.getElementById('jr-ch-'+pick));
 }
 function jrClose(){
   var lb=document.getElementById('jr-lb'); if(!lb||lb.hidden)return;
@@ -1887,6 +1908,7 @@ document.querySelector('.tab-nav').addEventListener('click',function(e){
   document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.toggle('active',p.id==='tab-'+name);});
   document.getElementById('main-content').scrollTop=0;
   if(name!=='journal'){safe(jrClose,'Journal');}
+  else{setTimeout(function(){safe(jrGoToday,'Journal');},30);}
 });
 function fixHeaderOffset(){var h=document.getElementById('app-header'),m=document.getElementById('main-content');if(h&&m)m.style.paddingTop=h.offsetHeight+'px';}
 function init(){
